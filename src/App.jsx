@@ -6,6 +6,7 @@ import Credentials from "./components/Credentials";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import Lanyard from "./components/Lanyard";
+import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Gallery />
       <Contact />
       <Lanyard />
+      <ThemeToggle />
     </>
   );
 }

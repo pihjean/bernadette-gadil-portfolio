@@ -1,0 +1,111 @@
+/* ---------- DARK MODE (navy-based, hindi itim) ---------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --line: #2c3d62;
+  --muted: #a3aec5;
+  --green: #7ad6bc;
+}
+
+body {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] body {
+  background: #131f38;
+  color: #e9edf6;
+}
+
+/* ---------- HERO ---------- */
+[data-theme="dark"] .hero-btn {
+  background: #e9edf6;
+  color: #0e1c37;
+  border-color: #e9edf6;
+}
+
+[data-theme="dark"] .hero-btn--outline {
+  background: transparent;
+  color: #e9edf6;
+}
+
+[data-theme="dark"] .hero-btn--outline:hover {
+  background: #e9edf6;
+  color: #0e1c37;
+}
+
+/* ---------- ABOUT ---------- */
+[data-theme="dark"] .about-card {
+  background: #1e2e50;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .about-card:hover {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 16px 28px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .about-icon {
+  color: #e9edf6;
+}
+
+[data-theme="dark"] .about-card-text {
+  color: #a3aec5;
+}
+
+[data-theme="dark"] .chip--outline {
+  border-color: rgba(233, 237, 246, 0.4);
+}
+
+[data-theme="dark"] .chip--outline:hover,
+[data-theme="dark"] .chip--fill:hover {
+  background: #e9edf6;
+  color: #0e1c37;
+}
+
+[data-theme="dark"] .chip--fill {
+  background: #1e2e50;
+}
+
+[data-theme="dark"] .ts-row,
+[data-theme="dark"] .ts-langs li,
+[data-theme="dark"] .cred-item {
+  border-bottom-color: rgba(233, 237, 246, 0.28);
+}
+
+/* ---------- GALLERY ---------- */
+[data-theme="dark"] .gal-item {
+  background: #1e2e50;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .gal-item:hover {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 16px 28px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .gal-ph {
+  color: rgba(233, 237, 246, 0.65);
+}
+
+/* ---------- CONTACT / FOOTER ---------- */
+[data-theme="dark"] .contact {
+  background: #0a1427;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- LANYARD: nananatiling light ang ID para totoong ID ang itsura ---------- */
+[data-theme="dark"] .badge {
+  color: #0e1c37;
+}
+
+/* ---------- RESUME VIEWER ---------- */
+[data-theme="dark"] .rv-panel {
+  background: #131f38;
+}
+
+[data-theme="dark"] .rv-bar {
+  background: #0a1427;
+  border-bottom: 1px solid var(--line);
+}
+
+[data-theme="dark"] .rv-fallback {
+  background: #1e2e50;
+  color: #a3aec5;
+}
