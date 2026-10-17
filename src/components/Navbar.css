@@ -1,0 +1,96 @@
+header.container {
+  position: relative;
+  z-index: 10;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  font-size: 1.7rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 34px;
+  background: var(--line);
+}
+
+.brand-tag {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 32px);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+}
+
+.nav-links a {
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Tablet: paliitin ng kaunti */
+@media (max-width: 800px) {
+  .navbar {
+    padding: 20px 0 16px;
+  }
+
+  .nav-links {
+    gap: 16px;
+    font-size: 0.72rem;
+  }
+}
+
+/* Phone: "Get in touch" na lang ang matitira */
+@media (max-width: 640px) {
+  .nav-links li:not(:last-child) {
+    display: none;
+  }
+
+  .brand-logo {
+    font-size: 1.45rem;
+  }
+
+  .brand-divider {
+    height: 28px;
+  }
+}
+
+/* Maliit na phone: itago ang "Personal Portfolio" */
+@media (max-width: 400px) {
+  .brand-divider,
+  .brand-tag {
+    display: none;
+  }
+}

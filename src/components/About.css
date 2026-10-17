@@ -1,0 +1,243 @@
+.about {
+  padding-top: clamp(36px, 5vw, 64px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+  scroll-margin-top: 20px;
+}
+
+.about-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.about-label--sub {
+  margin-top: clamp(28px, 4vw, 44px);
+  margin-bottom: 16px;
+}
+
+.about-intro {
+  font-family: var(--sans);
+  font-size: clamp(0.9rem, 1.15vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 1100px;
+}
+
+/* ---------- SERVICE CARDS ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.about-card {
+  background: #dde3f3;
+  padding: clamp(22px, 2.4vw, 32px) clamp(20px, 2.2vw, 30px);
+  box-shadow: 0 3px 0 rgba(14, 28, 55, 0.18), 0 8px 18px rgba(14, 28, 55, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 3px 0 rgba(14, 28, 55, 0.18), 0 16px 28px rgba(14, 28, 55, 0.14);
+}
+
+.about-icon {
+  display: block;
+  width: 26px;
+  height: 26px;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+.about-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.about-card-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.about-card-text {
+  font-family: var(--sans);
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  line-height: 1.75;
+  color: #6b7385;
+  margin-bottom: 22px;
+}
+
+.about-card-tags {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+/* ---------- TOOLS & SKILLS ---------- */
+.about-label--tools {
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.ts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: clamp(28px, 4vw, 64px);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(24px, 3vw, 36px);
+}
+
+.ts-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  margin-bottom: 18px;
+}
+
+.ts-title--lang {
+  margin-top: clamp(28px, 3vw, 40px);
+}
+
+.ts-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.3;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.chip--outline {
+  border: 1px solid rgba(14, 28, 55, 0.35);
+}
+
+.chip--outline:hover {
+  background: var(--navy);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.chip--fill {
+  background: #dde3f3;
+}
+
+.chip--fill:hover {
+  background: var(--navy);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.ts-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.ts-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px dotted rgba(14, 28, 55, 0.35);
+}
+
+.ts-row:first-child {
+  padding-top: 0;
+}
+
+.ts-row:last-child {
+  border-bottom: none;
+}
+
+.ts-row-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-top: 9px;
+}
+
+.ts-langs {
+  display: flex;
+  flex-direction: column;
+}
+
+.ts-langs li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 0;
+  border-bottom: 1px dotted rgba(14, 28, 55, 0.35);
+}
+
+.ts-langs li:last-child {
+  border-bottom: none;
+}
+
+.ts-lang-name {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.ts-lang-level {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+/* ---------- TABLET ---------- */
+@media (max-width: 999px) {
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .ts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- PHONE ---------- */
+@media (max-width: 640px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-card:last-child {
+    grid-column: auto;
+  }
+
+  .ts-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .ts-row-label {
+    padding-top: 0;
+  }
+
+  .chip {
+    font-size: 0.74rem;
+    padding: 7px 12px;
+  }
+}

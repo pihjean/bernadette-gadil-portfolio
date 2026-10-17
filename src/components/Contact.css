@@ -1,0 +1,118 @@
+/* Full-width footer: walang puting gilid o espasyo sa ilalim */
+.contact {
+  background: var(--navy);
+  color: #fff;
+  width: 100%;
+  margin-top: clamp(8px, 2vw, 24px);
+  scroll-margin-top: 0;
+}
+
+/* Kapareho ng lapad ng ibang sections para magkahanay ang content */
+.contact-inner {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 88px) var(--gutter) clamp(20px, 3vw, 32px);
+}
+
+.contact-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+
+.contact-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 18px;
+}
+
+.contact-title {
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5.2vw, 3.9rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 26px;
+}
+
+.contact-desc {
+  max-width: 440px;
+  font-family: var(--sans);
+  font-size: clamp(0.82rem, 1vw, 0.92rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- DETAILS ---------- */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-row dt {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.contact-row dd {
+  font-family: var(--sans);
+  font-size: clamp(0.88rem, 1.1vw, 1rem);
+  overflow-wrap: anywhere;
+}
+
+.contact-row a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.contact-row a:hover {
+  opacity: 0.7;
+  transform: translateX(3px);
+}
+
+/* ---------- FOOTER BAR ---------- */
+.contact-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  margin-top: clamp(32px, 5vw, 56px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+}
+
+.contact-top-link {
+  transition: opacity 0.2s;
+}
+
+.contact-top-link:hover {
+  opacity: 0.65;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 800px) {
+  .contact-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

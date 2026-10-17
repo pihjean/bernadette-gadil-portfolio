@@ -1,0 +1,133 @@
+.rv {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, 3vw, 32px);
+  background: rgba(8, 15, 30, 0.82);
+  animation: rv-fade 0.2s ease;
+}
+
+.rv-panel {
+  width: 100%;
+  max-width: 980px;
+  height: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  animation: rv-rise 0.28s ease;
+}
+
+.rv-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px clamp(14px, 2vw, 22px);
+  background: var(--navy);
+  color: #fff;
+}
+
+.rv-title {
+  font-family: var(--serif);
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+}
+
+.rv-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rv-link {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.rv-link:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.rv-close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.rv-close:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.rv-body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: #e9ecf2;
+}
+
+.rv-frame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #e9ecf2;
+}
+
+.rv-fallback {
+  padding: 8px 14px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+
+.rv-fallback a {
+  text-decoration: underline;
+}
+
+@keyframes rv-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rv-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 520px) {
+  .rv {
+    padding: 0;
+  }
+
+  .rv-panel {
+    max-height: 100vh;
+  }
+
+  .rv-title {
+    display: none;
+  }
+
+  .rv-bar {
+    justify-content: flex-end;
+  }
+}

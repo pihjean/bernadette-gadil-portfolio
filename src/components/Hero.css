@@ -1,0 +1,113 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+  padding-top: clamp(28px, 4vw, 56px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-text {
+  min-width: 0;
+}
+
+.hero-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7.2vw, 5.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+
+.hero-desc {
+  max-width: 600px;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.55;
+  margin-bottom: 26px;
+}
+
+/* ---------- BUTTONS ---------- */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--navy);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  padding: 15px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s, background 0.2s, color 0.2s;
+}
+
+.hero-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.hero-btn--outline {
+  background: transparent;
+  color: var(--navy);
+}
+
+.hero-btn--outline:hover {
+  background: var(--navy);
+  color: #fff;
+  opacity: 1;
+}
+
+/* Bakanteng lugar kung saan sasabit ang ID (tingnan ang Lanyard.jsx) */
+.hero-image {
+  min-height: 500px;
+}
+
+/* Tablet at phone: nasa taas ng text ang ID */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding-top: 16px;
+  }
+
+  .hero-image {
+    order: -1;
+    min-height: 460px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.3rem, 11vw, 4rem);
+  }
+}
+
+/* Maliit na phone: magkapatong at full-width ang buttons */
+@media (max-width: 420px) {
+  .hero-image {
+    min-height: 410px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

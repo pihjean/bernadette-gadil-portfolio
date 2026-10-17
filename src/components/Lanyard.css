@@ -1,0 +1,217 @@
+.lanyard-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* ---------- STRAP ---------- */
+.lanyard-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5; /* nasa ilalim ng navbar text */
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(14, 28, 55, 0.18));
+}
+
+.strap-edge,
+.strap-body,
+.strap-stitch {
+  fill: none;
+  stroke-linejoin: round;
+}
+
+.strap-edge {
+  stroke: #c3c9d4;
+  stroke-width: 19;
+}
+
+.strap-body {
+  stroke: #eef0f5;
+  stroke-width: 16;
+}
+
+.strap-stitch {
+  stroke: #0e1c37;
+  stroke-opacity: 0.3;
+  stroke-width: 1;
+  stroke-dasharray: 4 5;
+}
+
+/* ---------- BADGE ---------- */
+.badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: 115px 0;
+  will-change: transform;
+  opacity: 0;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+.badge:active {
+  cursor: grabbing;
+}
+
+/* ---------- CLIP ---------- */
+.clip {
+  position: relative;
+  width: 30px;
+  height: 54px;
+  z-index: 2;
+}
+
+.clip-crimp {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 14px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #8f96a3, #e9ecf1 45%, #9aa1ad);
+  box-shadow: 0 1px 3px rgba(14, 28, 55, 0.3);
+  z-index: 3;
+}
+
+.clip-ring {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11px;
+  height: 11px;
+  border: 2px solid #8b929e;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.clip-hook {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11px;
+  height: 34px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #98a0ac, #eceff3 50%, #8b929e);
+  box-shadow: 0 2px 4px rgba(14, 28, 55, 0.25);
+  z-index: 3;
+}
+
+.clip-hook::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 10px;
+  border-radius: 3px;
+  background: rgba(14, 28, 55, 0.18);
+}
+
+/* ---------- PLASTIC HOLDER ---------- */
+.holder {
+  position: relative;
+  width: 230px;
+  margin-top: -22px;
+  padding: 28px 14px 16px;
+  border-radius: 14px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(224, 229, 238, 0.8)
+  );
+  border: 1.5px solid rgba(14, 28, 55, 0.22);
+  box-shadow: 0 18px 36px rgba(14, 28, 55, 0.25),
+    inset 0 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+.holder-slot {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 10px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(14, 28, 55, 0.3);
+  background: rgba(14, 28, 55, 0.08);
+}
+
+/* ---------- ID CARD ---------- */
+.id-card {
+  background: #fff;
+  padding: 14px 14px 16px;
+  box-shadow: 0 1px 4px rgba(14, 28, 55, 0.12);
+}
+
+.id-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.id-logo {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.id-sub {
+  font-family: var(--sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.id-photo {
+  display: block;
+  width: 72%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin: 0 auto 14px;
+  pointer-events: none;
+}
+
+.id-info {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  line-height: 1.5;
+}
+
+.id-info li {
+  padding: 3px 0;
+  border-bottom: 1.5px dotted rgba(14, 28, 55, 0.45);
+}
+
+.id-info span {
+  font-family: var(--serif);
+  opacity: 0.7;
+  margin-right: 4px;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 800px) {
+  .strap-edge {
+    stroke-width: 15;
+  }
+
+  .strap-body {
+    stroke-width: 12;
+  }
+}
