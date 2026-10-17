@@ -106,7 +106,7 @@
   text-transform: uppercase;
   color: var(--green);
   opacity: 0;
-  animation: fade-in 0.8s ease 1.4s forwards;
+  animation: fade-in 0.8s ease 1s forwards;
 }
 
 /* Progress sa baba */

@@ -54,7 +54,7 @@ function LoadingScreen({ duration = 5000, onComplete }) {
                 <span
                   key={i}
                   className="loader__char"
-                  style={{ animationDelay: `${0.2 + (w * 6 + i) * 0.045}s` }}
+                  style={{ animationDelay: `${0.2 + (w * 6 + i) * 0.03}s` }}  // dati 0.045
                 >
                   {char}
                 </span>

@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      {loading && <LoadingScreen duration={5000} onComplete={handleComplete} />}
+      {loading && <LoadingScreen duration={3000} onComplete={handleComplete} />}
       <Navbar />
       <Hero />
       <About />
