@@ -1,0 +1,167 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--gutter);
+  background: #fff;
+  color: var(--navy);
+  font-family: var(--serif);
+  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Exit: parang kurtina na umaangat */
+.loader--exit {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.loader--exit .loader__inner,
+.loader--exit .loader__footer {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.loader__label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0;
+  animation: fade-in 0.8s ease 0.1s forwards;
+}
+
+.loader__inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 28px;
+}
+
+/* Monogram */
+.loader__mark {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  opacity: 0;
+  animation: fade-in 0.8s ease 0.2s forwards;
+}
+
+.loader__ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-top-color: var(--green);
+  animation: spin 1.6s linear infinite;
+}
+
+.loader__initials {
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+}
+
+/* Pangalan */
+.loader__name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.3em;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.loader__word {
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.loader__char {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: char-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.loader__role {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  opacity: 0;
+  animation: fade-in 0.8s ease 1.4s forwards;
+}
+
+/* Progress sa baba */
+.loader__footer {
+  width: 100%;
+  max-width: 1480px;
+  opacity: 0;
+  animation: fade-in 0.8s ease 0.4s forwards;
+}
+
+.loader__track {
+  height: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.loader__fill {
+  height: 100%;
+  background: var(--navy);
+}
+
+.loader__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.loader__percent {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+@keyframes char-up {
+  to { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader__ring { animation: none; }
+  .loader__char { animation-duration: 0.01s; }
+}
