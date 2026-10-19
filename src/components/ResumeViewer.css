@@ -83,6 +83,27 @@
   background: #e9ecf2;
 }
 
+/* PDF na naka-render sa canvas (gumagana sa phone) */
+.rv-body--img {
+  overflow-y: auto;
+  overflow-x: auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+.rv-canvas {
+  display: block;
+  flex-shrink: 0; /* para hindi mapiga ang page */
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
 .rv-frame {
   flex: 1;
   width: 100%;
@@ -129,5 +150,14 @@
 
   .rv-bar {
     justify-content: flex-end;
+  }
+}
+
+/* dvh para tama ang taas kahit may browser bars sa mobile */
+@supports (height: 100dvh) {
+  @media (max-width: 520px) {
+    .rv-panel {
+      max-height: 100dvh;
+    }
   }
 }
