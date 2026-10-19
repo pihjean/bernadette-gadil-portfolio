@@ -3,8 +3,7 @@ import "./Projects.css";
 
 const filters = ["All", "IT & Development", "QA & Testing", "UI/UX"];
 
-// Palitan ang mga image src ng sarili mong picture (ilagay sa public/projects/)
-// Halimbawa: "/projects/ncamis-1.jpg"
+// Ilagay ang mga picture sa public/projects/ at gamitin ang path, hal. "/projects/gotyme-1.png"
 const projects = [
   {
     title: "NCAMIS-SHS: Student Management Information System",
@@ -29,7 +28,12 @@ const projects = [
       "Conducted manual functional, exploratory, and security testing of the GoTyme Bank mobile application to identify issues and improve system reliability, usability, and security.",
     role: "QA, Documentation",
     chips: ["Functional testing", "Exploratory testing", "Security testing", "Bug reporting"],
-    images: [], // walang picture muna, placeholder ang lalabas
+    // Palitan ng mga picture mo. Ilagay sa public/projects/
+    images: [
+      "/projects/gotyme-1.png",
+      "/projects/gotyme-2.png",
+      "/projects/gotyme-3.png",
+    ],
     file: { label: "View QA report", href: "/projects/gotyme-qa-report.pdf" },
   },
   {
@@ -66,16 +70,6 @@ function ProjectCard({ project, number }) {
         {showPlaceholder ? (
           <div className="pj-ph">
             <span>{total === 0 ? "Project preview" : "Photo coming soon"}</span>
-            {project.file && (
-              <a
-                href={project.file.href}
-                target="_blank"
-                rel="noreferrer"
-                className="pj-file"
-              >
-                {project.file.label} ↗
-              </a>
-            )}
           </div>
         ) : (
           <img
@@ -123,7 +117,7 @@ function ProjectCard({ project, number }) {
         <span>Role:</span> {project.role}
       </p>
 
-      {project.file && !showPlaceholder && (
+      {project.file && (
         <a
           href={project.file.href}
           target="_blank"

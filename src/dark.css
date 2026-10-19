@@ -70,6 +70,94 @@ body {
   border-bottom-color: rgba(233, 237, 246, 0.28);
 }
 
+/* ---------- ACADEMIC PROJECTS ---------- */
+[data-theme="dark"] .pj-card {
+  background: #1e2e50;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .pj-card:hover {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 16px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* Filters */
+[data-theme="dark"] .pj-filter {
+  border-color: rgba(233, 237, 246, 0.4);
+}
+
+[data-theme="dark"] .pj-filter:hover,
+[data-theme="dark"] .pj-filter.is-active {
+  background: #e9edf6;
+  border-color: #e9edf6;
+  color: #0e1c37;
+}
+
+/* Media area */
+[data-theme="dark"] .pj-media {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .pj-media--pdf {
+  background: #fff; /* nananatiling puti ang PDF para madaling basahin */
+}
+
+[data-theme="dark"] .pj-media img {
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .pj-ph {
+  color: #a3aec5;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent 0 14px,
+    rgba(233, 237, 246, 0.06) 14px 15px
+  );
+}
+
+/* Carousel buttons at counter */
+[data-theme="dark"] .pj-nav {
+  color: #e9edf6;
+}
+
+[data-theme="dark"] .pj-nav:hover {
+  background: #e9edf6;
+  color: #0e1c37;
+}
+
+[data-theme="dark"] .pj-count {
+  background: #e9edf6;
+  color: #0e1c37;
+}
+
+/* Text */
+[data-theme="dark"] .pj-tag {
+  border-color: rgba(233, 237, 246, 0.4);
+}
+
+[data-theme="dark"] .pj-desc {
+  color: #a3aec5;
+}
+
+/* QA report button */
+[data-theme="dark"] .pj-file {
+  border-color: rgba(233, 237, 246, 0.4);
+}
+
+[data-theme="dark"] .pj-file:hover {
+  background: #e9edf6;
+  color: #0e1c37;
+}
+
+/* Chips */
+[data-theme="dark"] .pj-chips li {
+  background: #2a3c64;
+}
+
+[data-theme="dark"] .pj-chips li:hover {
+  background: #e9edf6;
+  color: #0e1c37;
+}
+
 /* ---------- GALLERY ---------- */
 [data-theme="dark"] .gal-item {
   background: #1e2e50;
