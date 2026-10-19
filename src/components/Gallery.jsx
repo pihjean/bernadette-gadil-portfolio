@@ -3,6 +3,7 @@ import "./Gallery.css";
 
 const DEFAULT_IMG_RATIO = 4 / 3;
 
+// Mga certificate: public/certificates/
 const certificates = [
   { src: "/certificates/cisco.png", caption: "Cisco Certificate" },
   { src: "/certificates/inbound-certificate.png", caption: "Inbound Certificate" },
@@ -12,25 +13,78 @@ const certificates = [
   { src: "/certificates/bytes-and-bites-network.png", caption: "The Bits and Bytes of Computer Networking" },
 ];
 
+// Graduation / Recognition: public/gallery/grad/grad-1.jpg hanggang grad-9.jpg
+const GRAD_COUNT = 9;
+const GRAD_EXT = "jpg"; // palitan kung png / jpeg ang mga file
+const gradPhotos = Array.from({ length: GRAD_COUNT }, (_, i) => ({
+  src: `/gallery/grad/grad-${i + 1}.${GRAD_EXT}`,
+  caption: `Graduation / Recognition ${i + 1}`,
+}));
+
+// Mga OJT picture: public/gallery/ojt/ojt-1.jpg hanggang ojt-10.jpg
+const OJT_COUNT = 10;
+const OJT_EXT = "jpg"; // palitan kung png / jpeg ang mga file
+const ojtPhotos = Array.from({ length: OJT_COUNT }, (_, i) => ({
+  src: `/gallery/ojt/ojt-${i + 1}.${OJT_EXT}`,
+  caption: `On-the-Job Training ${i + 1}`,
+}));
+
+// Team Moments: public/gallery/team/team-1.jpg hanggang team-6.jpg
+const TEAM_COUNT = 5;
+const TEAM_EXT = "jpg"; // palitan kung png / jpeg ang mga file
+const teamPhotos = Array.from({ length: TEAM_COUNT }, (_, i) => ({
+  src: `/gallery/team/team-${i + 1}.${TEAM_EXT}`,
+  caption: `Team Moments ${i + 1}`,
+}));
+
+/* Kung magkakaiba ang pangalan o extension ng alinmang album, gamitin ito sa halip:
+const teamPhotos = [
+  { src: "/gallery/team/team-1.jpg", caption: "Team Lunch" },
+  { src: "/gallery/team/team-2.png", caption: "Team Building" },
+  ...
+];
+*/
+
+// Ang may `album` ay nagbubukas ng sarili nitong set ng files.
+// `unit` = lalabas sa badge (hal. "9 photos")
 const photos = [
-  { src: "/gallery/graduation.jpg", caption: "Graduation Day", ratio: "4 / 5" },
+  {
+    caption: "Graduation / Recognition",
+    ratio: "4 / 5",
+    src: gradPhotos[0].src, // cover ng tile
+    album: gradPhotos,
+    unit: "photos",
+  },
   {
     caption: "Certificates",
     ratio: "4 / 3",
-    src: "/certificates/inbound-certificate.png",
+    src: "/certificates/inbound-certificate.png", // cover ng tile
     album: certificates,
+    unit: "certificates",
   },
-  { src: "/gallery/ojt.jpg", caption: "On-the-Job Training", ratio: "1 / 1" },
-  { src: "/gallery/team-moments.jpg", caption: "Team Moments", ratio: "3 / 4" },
+  {
+    caption: "On-the-Job Training",
+    ratio: "1 / 1",
+    src: ojtPhotos[0].src, // cover ng tile
+    album: ojtPhotos,
+    unit: "photos",
+  },
+  {
+    caption: "Team Moments",
+    ratio: "3 / 4",
+    src: teamPhotos[0].src, // cover ng tile
+    album: teamPhotos,
+    unit: "photos",
+  },
 ];
 
-const singles = photos.filter((p) => !p.album);
-const SWIPE_MIN = 50;
+const SWIPE_MIN = 50; // pinakamaliit na layo (px) para ituring na swipe
 
 export default function Gallery() {
-  const [lb, setLb] = useState(null); // { list, i } o null
+  // lb = { list: [...], i: index } o null
+  const [lb, setLb] = useState(null);
   const [failed, setFailed] = useState({});
-  const [ratios, setRatios] = useState({});
+  const [ratios, setRatios] = useState({}); // src -> lapad / taas ng totoong file
   const touch = useRef(null);
 
   const markFailed = (src) => setFailed((f) => ({ ...f, [src]: true }));
@@ -43,10 +97,8 @@ export default function Gallery() {
   const next = () =>
     setLb((s) => (s ? { ...s, i: (s.i + 1) % s.list.length } : s));
 
-  const openTile = (p) => {
-    if (p.album) setLb({ list: p.album, i: 0 });
-    else setLb({ list: singles, i: singles.indexOf(p) });
-  };
+  // Lahat ng tile ay album na
+  const openTile = (p) => setLb({ list: p.album, i: 0 });
 
   const isOpen = lb !== null;
 
@@ -69,6 +121,7 @@ export default function Gallery() {
   const current = lb ? lb.list[lb.i] : null;
   const multi = lb ? lb.list.length > 1 : false;
 
+  // Swipe pakaliwa/pakanan sa phone
   const onTouchStart = (e) => {
     const t = e.touches[0];
     touch.current = { x: t.clientX, y: t.clientY };
@@ -85,6 +138,7 @@ export default function Gallery() {
     else next();
   };
 
+  // Hugis ng viewer: manual > nabasa sa picture > default
   const ar = current
     ? current.ratio ?? ratios[current.src] ?? DEFAULT_IMG_RATIO
     : DEFAULT_IMG_RATIO;
@@ -101,11 +155,7 @@ export default function Gallery() {
             className="gal-item"
             style={{ aspectRatio: p.ratio }}
             onClick={() => openTile(p)}
-            aria-label={
-              p.album
-                ? `Open ${p.caption} (${p.album.length} files)`
-                : `Open photo: ${p.caption}`
-            }
+            aria-label={`Open ${p.caption} (${p.album.length} ${p.unit || "files"})`}
           >
             {failed[p.src] ? (
               <span className="gal-ph">{p.caption}</span>
@@ -119,9 +169,10 @@ export default function Gallery() {
               />
             )}
 
-            {p.album && (
-              <span className="gal-count">{p.album.length} certificates</span>
-            )}
+            <span className="gal-count">
+              {p.album.length} {p.unit || "files"}
+            </span>
+
             <span className="gal-cap">{p.caption}</span>
           </button>
         ))}
@@ -143,7 +194,10 @@ export default function Gallery() {
           {multi && (
             <button
               className="lb-nav lb-prev"
-              onClick={(e) => { e.stopPropagation(); prev(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                prev();
+              }}
               aria-label="Previous"
             >
               ‹
@@ -175,14 +229,19 @@ export default function Gallery() {
             )}
             <figcaption>
               {current.caption}
-              <span>{lb.i + 1} / {lb.list.length}</span>
+              <span>
+                {lb.i + 1} / {lb.list.length}
+              </span>
             </figcaption>
           </figure>
 
           {multi && (
             <button
               className="lb-nav lb-next"
-              onClick={(e) => { e.stopPropagation(); next(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                next();
+              }}
               aria-label="Next"
             >
               ›
