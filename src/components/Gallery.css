@@ -1,4 +1,4 @@
-/* Masonry grid */
+/* ---------- MASONRY GRID ---------- */
 .gal-grid {
   column-count: 3;
   column-gap: clamp(14px, 2vw, 28px);
@@ -54,6 +54,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 2;
   padding: 28px 14px 12px;
   text-align: left;
   font-family: var(--sans);
@@ -79,8 +80,29 @@
   }
 }
 
+/* Badge ng Certificates tile (ilan ang laman) */
+.gal-count {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+}
+
 /* ---------- LIGHTBOX ---------- */
 .lb {
+  /* available na taas ng screen (dvh para tama sa mobile browser bars) */
+  --lb-vh: 100vh;
+  --lb-chrome: 150px; /* top padding + caption + bottom padding */
+
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -89,30 +111,51 @@
   justify-content: center;
   padding: 64px 16px 32px;
   background: rgba(8, 15, 30, 0.92);
+  touch-action: pan-y;
 }
 
+@supports (height: 100dvh) {
+  .lb {
+    --lb-vh: 100dvh;
+  }
+}
+
+/* Ang lapad ng figure ay galing sa totoong ratio ng file (--ar = lapad / taas),
+   kaya sumusunod ang laki sa bawat PDF o picture at kasya palagi sa screen. */
 .lb-fig {
-  max-width: min(92vw, 1000px);
-  max-height: 100%;
+  --ar: 1.333;
+  width: min(1000px, 92vw, calc((var(--lb-vh) - var(--lb-chrome)) * var(--ar)));
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
-.lb-fig img {
-  max-width: 100%;
-  max-height: calc(100vh - 150px);
-  object-fit: contain;
+/* Picture o PDF canvas */
+.lb-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
+/* PDF iframe: kapareho ng hugis ng page, kaya walang sobrang kulay-abong gilid */
+.lb-pdf {
+  border: 0;
+  aspect-ratio: var(--ar);
+}
+
+/* Placeholder kapag wala pang picture */
 .lb-ph {
-  width: min(80vw, 520px);
+  width: 100%;
   aspect-ratio: 4 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
+  text-align: center;
   background: #dde3f3;
   color: rgba(14, 28, 55, 0.6);
   font-size: 1.2rem;
@@ -120,8 +163,11 @@
 
 .lb-fig figcaption {
   display: flex;
-  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 14px;
   align-items: baseline;
+  text-align: center;
   font-family: var(--sans);
   font-size: 0.82rem;
   color: #fff;
@@ -130,6 +176,12 @@
 .lb-fig figcaption span {
   font-size: 0.7rem;
   opacity: 0.6;
+}
+
+.lb-open {
+  color: inherit;
+  text-decoration: underline;
+  margin-right: 12px;
 }
 
 .lb-close,
@@ -173,6 +225,12 @@
   right: 16px;
 }
 
+/* ---------- DARK MODE ---------- */
+[data-theme="dark"] .gal-count {
+  background: #e9edf6;
+  color: #0e1c37;
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 999px) {
   .gal-grid {
@@ -186,14 +244,39 @@
   }
 }
 
+/* Phone: nasa ibaba ang prev/next, kaya mas malaki ang binabawas sa taas */
 @media (max-width: 640px) {
+  .lb {
+    --lb-chrome: 200px;
+    padding: 60px 12px 76px;
+  }
+
   .lb-nav {
     top: auto;
     bottom: 16px;
     transform: none;
   }
 
+  .lb-fig {
+    width: min(96vw, calc((var(--lb-vh) - var(--lb-chrome)) * var(--ar)));
+  }
+}
+
+/* Phone na naka-landscape: maikli ang taas, kaya paliitin ang gilid */
+@media (max-height: 480px) {
   .lb {
-    padding-bottom: 76px;
+    --lb-chrome: 110px;
+    padding: 48px 72px 16px;
+  }
+
+  .lb-nav {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  .lb-close {
+    top: 8px;
+    right: 8px;
   }
 }
