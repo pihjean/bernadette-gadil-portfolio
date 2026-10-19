@@ -9,8 +9,6 @@ export default function Hero() {
   return (
     <section id="top" className="container hero">
       <div className="hero-text">
-        <p className="hero-label">INFORMATION SYSTEMS GRADUATE</p>
-
         <h1 className="hero-title">
           Hello, I’m
           <br />

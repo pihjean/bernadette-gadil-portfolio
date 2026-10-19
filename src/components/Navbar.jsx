@@ -25,6 +25,7 @@ export default function Navbar() {
         <ul className="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#credentials">Credentials</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li>

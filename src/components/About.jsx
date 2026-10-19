@@ -25,6 +25,18 @@ const icons = {
   ),
 };
 
+const education = {
+  degree: "Bachelor of Science in Information Systems",
+  school: "University of Camarines Norte",
+  place: "Camarines Norte, Philippines",
+  graduated: "Graduated: June 26, 2026",
+  awards: [
+    "Academic Distinction",
+    "Best in On-the-Job Training (OJT)",
+    "Best in Capstone",
+  ],
+};
+
 const services = [
   {
     icon: "monitor",
@@ -102,6 +114,30 @@ export default function About() {
         opportunities to grow professionally and contribute meaningfully to a
         team.
       </p>
+
+      {/* ---------- EDUCATION ---------- */}
+      <p className="about-label about-label--sub">EDUCATION</p>
+
+      <div className="edu">
+        <div className="edu-main">
+          <h3 className="edu-degree">{education.degree}</h3>
+          <p className="edu-school">
+            {education.school} · {education.place}
+          </p>
+          <p className="edu-date">{education.graduated}</p>
+        </div>
+
+        <div className="edu-awards">
+          <p className="edu-awards-label">Academic Awards</p>
+          <ul className="ts-chips">
+            {education.awards.map((a) => (
+              <li key={a} className="chip chip--fill">
+                {a}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
       <p className="about-label about-label--sub">WHAT I DO</p>
 

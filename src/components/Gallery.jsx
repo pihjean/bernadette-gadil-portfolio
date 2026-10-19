@@ -38,7 +38,7 @@ export default function Gallery() {
 
   return (
     <section id="gallery" className="container sec">
-      <p className="sec-label">04 / GALLERY</p>
+      <p className="sec-label">05 / GALLERY</p>
 
       <div className="gal-grid">
         {photos.map((p, i) => (

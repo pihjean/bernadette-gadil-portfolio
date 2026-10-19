@@ -21,6 +21,13 @@ const details = [
     external: true,
   },
   {
+    label: "Facebook",
+    value: "Bernadette Gadil",
+    href: "https://www.facebook.com/share/19W9ngoZfy/",
+    arrow: true,
+    external: true,
+  },
+  {
     label: "Based in",
     value: "Camarines Norte, Philippines",
   },
@@ -32,7 +39,7 @@ export default function Contact() {
       <div className="contact-inner">
         <div className="contact-top">
           <div className="contact-intro">
-            <p className="contact-label">05 / GET IN TOUCH</p>
+            <p className="contact-label">06 / GET IN TOUCH</p>
             <h2 className="contact-title">
               Let’s start a
               <br />

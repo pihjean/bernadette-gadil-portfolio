@@ -40,6 +40,16 @@ const experiences = [
       "Supported daily administrative operations, document preparation, and office coordination.",
     ],
   },
+  {
+    date: "July 2022–October 2022",
+    tag: "Customer Service",
+    title: "Cashier / Sales Clerk",
+    company: "HP Department Store",
+    location: "Daet, Camarines Norte",
+    points: [
+      "Assisted customers with purchases by providing product information, handling transactions accurately, and ensuring efficient checkout service.",
+    ],
+  },
 ];
 
 export default function Experience() {

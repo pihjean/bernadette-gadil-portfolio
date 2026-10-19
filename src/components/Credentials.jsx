@@ -3,19 +3,39 @@ import "./Credentials.css";
 
 const credentials = [
   {
-    title: "Google IT Support Professional",
+    title: "The Bits and Bytes of Computer Networking",
     issuer: "Google Career Certificates (Coursera)",
-    year: "2026",
+    year: "May 31, 2026",
   },
   {
-    title: "Certificate of Completion — On-the-Job Training (OJT)",
-    issuer: "Sisters of Mary Banneux Inc. Girlstown",
-    year: "2026",
+    title: "Operating Systems and You: Becoming a Power User",
+    issuer: "Google Career Certificates (Coursera)",
+    year: "July 14, 2026",
+  },
+  {
+    title: "Network Architecture",
+    issuer: "Google Career Certificates (Coursera)",
+    year: "July 2, 2026",
   },
   {
     title: "Inbound",
     issuer: "HubSpot Academy",
-    year: "2026",
+    year: "July 1, 2026",
+  },
+  {
+    title: "Certificate of Completion — On-the-Job Training (OJT)",
+    issuer: "Sisters of Mary Banneux Inc. Girlstown",
+    year: "May 2026",
+  },
+  {
+    title: "Technical Support Fundamentals",
+    issuer: "Google Career Certificates (Coursera)",
+    year: "Apr 5, 2026",
+  },
+  {
+    title: "Data Science Essentials with Python",
+    issuer: "Cisco Networking Academy",
+    year: "Mar 27, 2026",
   },
   {
     title: "Computer Systems Servicing (CSS) NC II",
@@ -27,7 +47,7 @@ const credentials = [
 export default function Credentials() {
   return (
     <section id="credentials" className="container sec">
-      <p className="sec-label">03 / CREDENTIALS</p>
+      <p className="sec-label">04 / CREDENTIALS</p>
 
       <ul className="cred-list">
         {credentials.map((c) => (

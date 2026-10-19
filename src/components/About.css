@@ -25,6 +25,46 @@
   max-width: 1100px;
 }
 
+/* ---------- EDUCATION ---------- */
+.edu {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(20px, 2.6vw, 32px);
+}
+
+.edu-degree {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.edu-school {
+  font-family: var(--sans);
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.edu-date {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.edu-awards-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
 /* ---------- SERVICE CARDS ---------- */
 .about-grid {
   display: grid;
@@ -212,6 +252,7 @@
     grid-column: 1 / -1;
   }
 
+  .edu,
   .ts {
     grid-template-columns: minmax(0, 1fr);
   }
