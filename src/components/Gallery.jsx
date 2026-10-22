@@ -4,6 +4,8 @@ import "./Gallery.css";
 const DEFAULT_IMG_RATIO = 4 / 3;
 
 // Mga certificate: public/certificates/
+// Walang space at maliit na letra sa pangalan ng file (case-sensitive ang hosting).
+// Palitan ang 6 na bagong entry (certificate-7 hanggang certificate-12) ng totoong file at pamagat.
 const certificates = [
   { src: "/certificates/cisco.png", caption: "Cisco Certificate" },
   { src: "/certificates/inbound-certificate.png", caption: "Inbound Certificate" },
@@ -11,6 +13,14 @@ const certificates = [
   { src: "/certificates/operating-systems.png", caption: "Operating Systems" },
   { src: "/certificates/technical-support-fundamentals.png", caption: "Technical Support Fundamentals" },
   { src: "/certificates/bytes-and-bites-network.png", caption: "The Bits and Bytes of Computer Networking" },
+
+  // ----- 6 NA BAGO -----
+  { src: "/certificates/certificate-7.jpg", caption: "IS WEB 3.0: Exploring Innovations in Web Development" },
+  { src: "/certificates/certificate-8.jpg", caption: "Certificate of Completion: OJT" },
+  { src: "/certificates/certificate-9.jpg", caption: "Certificate of Recognition: OJT" },
+  { src: "/certificates/certificate-10.jpg", caption: "Certificate of Academic Excellence: Best in Capstone" },
+  { src: "/certificates/certificate-11.jpg", caption: "Certificate of Academic Excellence: Academic Distinction Awardee" },
+  { src: "/certificates/certificate-12.jpg", caption: "Certificate of Academic Excellence: Best in OJT" },
 ];
 
 // Graduation / Recognition: public/gallery/grad/grad-1.jpg hanggang grad-9.jpg
@@ -29,7 +39,7 @@ const ojtPhotos = Array.from({ length: OJT_COUNT }, (_, i) => ({
   caption: `On-the-Job Training ${i + 1}`,
 }));
 
-// Team Moments: public/gallery/team/team-1.jpg hanggang team-6.jpg
+// Team Moments: public/gallery/team/team-1.jpg hanggang team-5.jpg
 const TEAM_COUNT = 5;
 const TEAM_EXT = "jpg"; // palitan kung png / jpeg ang mga file
 const teamPhotos = Array.from({ length: TEAM_COUNT }, (_, i) => ({
@@ -37,16 +47,8 @@ const teamPhotos = Array.from({ length: TEAM_COUNT }, (_, i) => ({
   caption: `Team Moments ${i + 1}`,
 }));
 
-/* Kung magkakaiba ang pangalan o extension ng alinmang album, gamitin ito sa halip:
-const teamPhotos = [
-  { src: "/gallery/team/team-1.jpg", caption: "Team Lunch" },
-  { src: "/gallery/team/team-2.png", caption: "Team Building" },
-  ...
-];
-*/
-
 // Ang may `album` ay nagbubukas ng sarili nitong set ng files.
-// `unit` = lalabas sa badge (hal. "9 photos")
+// `unit` = lalabas sa badge (hal. "12 certificates")
 const photos = [
   {
     caption: "Graduation / Recognition",
